@@ -10,7 +10,7 @@ IEnumerator BeginTurn() {
   /* .... */
 
   yield return Fx( countdown |Fx.Trap(5) );
-  anduin.Message("»¡¸® ¼±ÅÃÇØ¾ß ÇÏ´Âµ¥!");
+  anduin.Message("ë¹¨ë¦¬ ì„ íƒí•´ì•¼ í•˜ëŠ”ë°!");
   batzul.Burn();
 }
 ````
@@ -21,7 +21,7 @@ __Fx.To__
 ```c#
 number -Fx.To(duration)> target_value1 > target_value2 > ...
 
-// Åõ¸íµµ¸¦ 1ÃÊ °£°ÝÀ¸·Î Åõ¸í-¹ÝÅõ¸íÀ» ¹Ýº¹ÇÑ´Ù.
+// íˆ¬ëª…ë„ë¥¼ 1ì´ˆ ê°„ê²©ìœ¼ë¡œ íˆ¬ëª…-ë°˜íˆ¬ëª…ì„ ë°˜ë³µí•œë‹¤.
 opacity -Fx.To(1.0)> 0 > 255 > 0 > 255
 ```
 
@@ -29,7 +29,7 @@ __Fx.Blink__
 ```c#
 number -Fx.Blink(duration)> target_value1 > target_value2 > ...
 
-// Åõ¸íµµ¸¦ 0.1ÃÊ °£°ÝÀ¸·Î ±ôºý±ôºýÇÑ´Ù.
+// íˆ¬ëª…ë„ë¥¼ 0.1ì´ˆ ê°„ê²©ìœ¼ë¡œ ê¹œë¹¡ê¹œë¹¡í•œë‹¤.
 opacity -Fx.Blink(0.1)> 0 > 255 > 0 > 255
 ```
 
@@ -37,7 +37,7 @@ __Fx.Trap__
 ```c#
 number |Fx.Trap(target_value)| timeout
 
-// hp°¡ 10À¸·Î ¶³¾îÁú ¶§ ±îÁö ´ÙÀ½ ÄÚµå ½ÇÇàÀ» ¸ØÃá´Ù.
+// hpê°€ 10ìœ¼ë¡œ ë–¨ì–´ì§ˆ ë•Œ ê¹Œì§€ ë‹¤ìŒ ì½”ë“œ ì‹¤í–‰ì„ ë©ˆì¶˜ë‹¤.
 hp |Fx.Trap(10)
 ```
 * timeout : optional
@@ -46,7 +46,7 @@ __Fx.Watch__
 ```c#
 dst_number <Fx.Watch()- src_number - delta
 
-// ÆÄÆ¼ ¸â¹ö2¸¦ 1¿¡ 10ÇÈ¼¿ ¶³¾îÁ®¼­ µû¶ó´Ù´Ï°Ô ÇÑ´Ù. 
+// íŒŒí‹° ë©¤ë²„2ë¥¼ 1ì— 10í”½ì…€ ë–¨ì–´ì ¸ì„œ ë”°ë¼ë‹¤ë‹ˆê²Œ í•œë‹¤. 
 member2.x <Fx.Watch()- member1.x - 10
 ```
 * delta : optional
@@ -55,18 +55,23 @@ __Fx.Stop__
 ```c#
 number <Fx.Stop()> target_value
 
-// ¸ðµç ÀÌº¥Æ®¸¦ ¾ø¿¡°í Åõ¸íµµ¸¦ 255·Î ¼³Á¤
+// ëª¨ë“  ì´ë²¤íŠ¸ë¥¼ ì—†ì—ê³  íˆ¬ëª…ë„ë¥¼ 255ë¡œ ì„¤ì •
 opacity <Fx.Stop()> 255;
 ```
-number¿¡ ´ëÇØ ÁøÇàÁßÀÎ ¸ðµç Fx ÀÌº¥Æ®¸¦ Á¦°ÅÇÏ°í `target_value`·Î °ªÀ» ¼³Á¤ÇÑ´Ù.
+numberì— ëŒ€í•´ ì§„í–‰ì¤‘ì¸ ëª¨ë“  Fx ì´ë²¤íŠ¸ë¥¼ ì œê±°í•˜ê³  `target_value`ë¡œ ê°’ì„ ì„¤ì •í•œë‹¤.
 
 AAAA
 ----
-Blink ½Ä µÚ¿¡ Blink¸¦ ´Ù½Ã È£ÃâÇÏ¿© ÁÖ±â¸¦ º¯°æÇÒ ¼ö ÀÖ´Ù.
+Blink ì‹ ë’¤ì— Blinkë¥¼ ë‹¤ì‹œ í˜¸ì¶œí•˜ì—¬ ì£¼ê¸°ë¥¼ ë³€ê²½í•  ìˆ˜ ìžˆë‹¤.
 ```c#
 opacity -Fx.Blink(0.1)> 0 > 255 > Fx.Blink(1.0) > 0 > 255
 ```
-Blink ½Ä µÚ¿¡ To¸¦ È£ÃâÇÏ¿© È¿°ú¸¦ º¯°æÇÒ ¼ö ÀÖ´Ù. (¿ªµµ °¡´É)
+Blink ì‹ ë’¤ì— Toë¥¼ í˜¸ì¶œí•˜ì—¬ íš¨ê³¼ë¥¼ ë³€ê²½í•  ìˆ˜ ìžˆë‹¤. (ì—­ë„ ê°€ëŠ¥)
 ```c#
 opacity -Fx.Blink(0.1)> 0 > 255 > Fx.To(1.0) > 0 > 255
 ```
+
+Issusssss
+-----
+* `Fx()`ë¡œ ì•ˆê°ì‹¸ë©´ ì—ëŸ¬ë‚¨
+  * C# ë¬¸ë²•ìƒ `a -Fx.To()> 10`ì´ ë‹¨ìˆœ ì‹ìœ¼ë¡œ íŒë‹¨ë˜ì„œ ì‹¤í–‰ ì•ˆì‹œì¼œì¤Œ
