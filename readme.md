@@ -4,14 +4,15 @@ FxUnity
 SuperPowerUnity
 
 ````c#
+// A virtual scenario that simulates HearthStone.
 IEnumerator BeginTurn() {
-  Fx( countdown -Fx.To(10.0)> 10);
+  Fx( countdown -Fx.To(10.0)> 10 );
 
   /* .... */
 
   yield return Fx( countdown |Fx.Trap(5) );
-  anduin.Message("빨리 선택해야 하는데!");
-  batzul.Burn();
+  anduin.Message("I must choose quickly!");
+  rope.Burn();
 }
 ````
 
@@ -55,10 +56,10 @@ __Fx.Stop__
 ```c#
 number <Fx.Stop()> target_value
 
-// 모든 이벤트를 없에고 투명도를 255로 설정
+// Stop all events and set opacity to 255.
 opacity <Fx.Stop()> 255;
 ```
-number에 대해 진행중인 모든 Fx 이벤트를 제거하고 `target_value`로 값을 설정한다.
+`number` 에 대해 진행중인 모든 Fx 이벤트를 제거하고 `target_value`로 값을 설정한다.
 
 AAAA
 ----
